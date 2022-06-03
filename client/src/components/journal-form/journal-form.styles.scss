@@ -1,0 +1,12 @@
+.journal-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px #bc6c25 solid;
+    align-self: stretch;
+    .journal-form-heading {
+        margin: 0;
+        height: 100%;
+    }
+}

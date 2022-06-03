@@ -1,0 +1,16 @@
+.to-do-container {
+    border-right: 5px #bc6c25 solid;
+    flex: 1;
+    justify-content: center;
+    .to-do-heading {
+        text-align: center;
+        width: 100%;
+    }
+    .quadrants-container {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+}

@@ -1,0 +1,15 @@
+.quadrant-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
+    border: 2px black solid;
+    align-self: stretch;
+    height: 300px;
+    .quadrant-title-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
