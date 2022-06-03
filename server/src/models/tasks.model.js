@@ -1,7 +1,5 @@
 const tasksDatabase = require('./tasks.mongo');
 
-saveTask(task);
-
 function existsTaskWithId(taskId) {
     return tasks.has(taskId);
 }
