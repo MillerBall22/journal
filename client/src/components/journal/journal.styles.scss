@@ -1,0 +1,37 @@
+.journal-green {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 25%;
+    background-color: #0A6838;
+    border: 2px black solid;
+    border-left: 20px black solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-self: stretch;
+    margin-left: 20px;
+    height: 200px;
+    cursor: pointer;
+    h2 {
+        text-align: center;
+    }
+}
+
+.journal-blue {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 25%;
+    background-color: #103461;
+    border: 2px black solid;
+    border-left: 20px black solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-self: stretch;
+    margin-left: 20px;
+    height: 200px;
+    cursor: pointer;
+    h2 {
+        text-align: center;
+    }
+}

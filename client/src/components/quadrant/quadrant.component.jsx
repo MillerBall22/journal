@@ -5,7 +5,7 @@ import Task from '../task/task.component';
 
 import './quadrant.styles.scss'
 
-const Quadrant = ({title, quadrant}) => {
+const Quadrant = ({title, quadrant, className}) => {
     const [quadrantData, setQuadrantData] = useState([]);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Quadrant = ({title, quadrant}) => {
 
     return (
         
-        <div className='quadrant-container'>
+        <div className={className}>
             <div className='quadrant-title-container'>
                 <h3>{title}</h3>
             </div>

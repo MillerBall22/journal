@@ -1,17 +1,21 @@
-.to-do-container {
+.journals-display-container {
     border-right: 5px #bc6c25 solid;
     flex: 1;
     justify-content: center;
-    .to-do-heading {
+    align-items: flex-start;
+    border-left: 5px #bc6c25 solid;
+    align-self: stretch;
+    .journals-heading {
         text-align: center;
         width: 100%;
         color: #bc6c25;
     }
-    .quadrants-container {
+    .journals-container {
         display: flex;
         flex: 1;
         flex-wrap: wrap;
         justify-content: stretch;
         align-items: stretch;
+        padding: 0 10%;
     }
 }

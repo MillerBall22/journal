@@ -1,13 +1,13 @@
 import './home.styles.scss';
 import ToDoList from '../../components/to-do-list/to-do-list.component';
-import JournalForm from '../../components/journal-form/journal-form.component';
+import JournalsDisplay from '../../components/journals-display/journals-display.component';
 
 
 const Home = () => {
     return(
         <div className='home-container'>
             <ToDoList/>
-            <JournalForm/>
+            <JournalsDisplay/>
         </div>
     );
 }

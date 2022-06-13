@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 
+const { subTaskSchema } = require('./subTasks.mongo');
+
 const tasksSchema = new mongoose.Schema({
     mainTask: {
         type: String,
         required: true,
     },
     subTasks: {
-        type: [String],
+        type: [subTaskSchema],
+        required: true,
+    },
+    quadrant: {
+        type: String,
         required: true,
     },
     finished: {
