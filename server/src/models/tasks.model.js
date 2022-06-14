@@ -5,7 +5,6 @@ function existsTaskWithId(taskId) {
 }
 
 function addNewTask(task) {
-
     tasks.set(
         Object.assign(task, {
             finished: false,
@@ -20,7 +19,7 @@ async function saveTask(task) {
     })
 }
 
-async function getAllTaskes() {
+async function getAllTasks() {
     return await tasksDatabase
         .find({}, { '_id': 0, '__v': 0 })
 }
@@ -32,7 +31,7 @@ function abortTaskById(taskId) {
 }
 
 module.exports = {
-    getAllTaskes,
+    getAllTasks,
     addNewTask,
     existsTaskWithId,
     abortTaskById

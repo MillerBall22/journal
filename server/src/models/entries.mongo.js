@@ -13,6 +13,10 @@ const entriesSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
+    hoursTaken: {
+        type: Number,
+        required: true,
+    },
     entryDetails: {
         type: [String],
         required: true,

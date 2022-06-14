@@ -8,6 +8,10 @@ const JournalsDisplay = () => {
             <div className='journals-container'>
                 <Journal className='journal-green' title='Journal'/>
                 <Journal className='journal-blue' title='Journal'/>
+                <Journal className='journal-orange' title='Journal'/>
+                <Journal className='journal-purple' title='Journal'/>
+                <Journal className='journal-red' title='Journal'/>
+                <Journal className='journal-yellow' title='Journal'/>
             </div>
 
 
