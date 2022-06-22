@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:8000';
 
-//TODO Submit OT Submission
+// Add New Task
 async function httpAddNewTask(task) {
     try {
         return await fetch(`${API_URL}/tasks`, {
@@ -17,13 +17,13 @@ async function httpAddNewTask(task) {
     }
 }
 
-// get submissions
+// get Tasks
 async function httpGetAllTasks() {
     const response = await fetch(`${API_URL}/tasks`);
     return await response.json();
 }
 
-//change submissions
+//Delete Task
 async function httpFinishTask(id, ) {
     try {
         return await fetch(`${API_URL}/tasks/${[id]}`, {
@@ -36,8 +36,33 @@ async function httpFinishTask(id, ) {
     }
 }
 
+//Get All Journals
+async function httpGetAllJournals() {
+    const response = await fetch(`${API_URL}/journals`);
+    return await response.json();
+}
+
+//Add Journal
+async function httpAddNewJournal(journal) {
+    try {
+        return await fetch(`${API_URL}/journals`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(journal)
+        });
+    } catch (error) {
+        return {
+            ok: false
+        };
+    }
+}
 export {
     httpAddNewTask,
     httpGetAllTasks,
     httpFinishTask,
+    httpGetAllJournals,
+    httpAddNewJournal,
+
 }

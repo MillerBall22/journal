@@ -3,6 +3,7 @@ import { useState } from "react";
 import './journal-form.styles.scss'
 
 import Form from '../form/form.component';
+import { httpAddNewJournal } from "../../hooks/requests";
 
 const defaultEntryFormFields = {
     entryName: '',
@@ -44,6 +45,7 @@ const JournalForm = () => {
 
     const handleJournalSubmit = async (event) => {
         event.preventDefault();
+        httpAddNewJournal(journalFormFields);
         resetJournalFormFields();
     }
 
