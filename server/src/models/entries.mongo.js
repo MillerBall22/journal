@@ -18,7 +18,7 @@ const entriesSchema = new mongoose.Schema({
         required: true,
     },
     entryDetails: {
-        type: [String],
+        type: String,
         required: true,
     },
 });

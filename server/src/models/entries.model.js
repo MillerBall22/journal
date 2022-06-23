@@ -1,9 +1,20 @@
 const entriesDatabase = require('./entries.mongo');
 
-function addNewEntry(entry) {
-    entriesDatabase.set(
-        Object.assign(entry)
-    );
+async function addNewEntry(entry) {
+
+    const filter = {
+        entry: entry.entry,
+        journal: entry.journal,
+        entryDate: entry.entryDate,
+        hoursTaken: entry.hoursTaken,
+        entryDetails: entry.entryDetails,
+    };
+
+    await entriesDatabase.findOneAndUpdate(filter, entry, {
+        new: true,
+        upsert: true,
+        projection: { _id: 0, __v: 0 },
+    });
 }
 
 async function getJournalEntries(journal) {

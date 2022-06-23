@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import './journal-form.styles.scss'
 
 import Form from '../form/form.component';
-import { httpAddNewJournal } from "../../hooks/requests";
+import { httpAddNewJournal, httpGetAllJournals, httpAddNewEntry } from "../../hooks/requests";
 
 const defaultEntryFormFields = {
     entryName: '',
@@ -16,19 +16,30 @@ const defaultJournalFormFields = {
     journalName: '',
 }
 
-const journals = [
-    { value: '0.5', label: 'x0.5' },
-    { value: '1.0', label: 'x1.0' },
-    { value: '1.5', label: 'x1.5' },
-    { value: '2.0', label: 'x2.0' },
-]
+const defaultJournals = []
 
 const JournalForm = () => {
     const [entryFormFields, setEntryFormFields] = useState(defaultEntryFormFields);
     const [journalFormFields, setJournalFormFields] = useState(defaultJournalFormFields);
+    const [journals, setJournals] = useState(defaultJournals);
 
     const {entryName, journal, entryDetails, hoursTaken} = entryFormFields;
     const {journalName} = journalFormFields;
+
+    
+    const getJournals = async () => {
+        const journalNames = await httpGetAllJournals();
+        setJournals(defaultJournals);
+        journalNames.map((journal) => {
+            setJournals(current => [...current, {
+                label: journal.journalName,
+                value: journal.journalName
+            }])
+        })}
+        
+    useEffect(() => {
+        getJournals();
+    },[])
 
     const resetEntryFormFields = () => {
         setEntryFormFields(defaultEntryFormFields);
@@ -39,7 +50,16 @@ const JournalForm = () => {
     }
     
     const handleEntrySubmit = async (event) => {
+        const date = Date.now();
+        const entry = {
+            entry: entryName,
+            journal: journal,
+            hoursTaken: hoursTaken,
+            entryDetails: entryDetails,
+            entryDate: date,
+        }
         event.preventDefault();
+        httpAddNewEntry(entry);
         resetEntryFormFields();
     }
 
@@ -106,11 +126,11 @@ const JournalForm = () => {
         },
     ]
 
-    const buttons = [
+    const entryButtons = [
     {
         class: 'buttons-container',
         label: 'Reset',
-        onClick: () => {},
+        onClick: resetEntryFormFields,
         type: 'button'
     },
     {
@@ -120,10 +140,26 @@ const JournalForm = () => {
         type: 'submit'
     },
     ]
+
+    const journalButtons = [
+    {
+        class: 'buttons-container',
+        label: 'Reset',
+        onClick: resetJournalFormFields,
+        type: 'button'
+    },
+    {
+        class: 'buttons-container',
+        label: 'Submit',
+        onClick: () => {},
+        type: 'submit'
+    },
+    ]
+
     return (
         <div className='journal-form-container'>
-            <Form title='New Entry' form={newEntryForm} className='new-entry-form-container' onSubmit={handleEntrySubmit} buttons={buttons} />
-            <Form title='New Journal' form={newJournalForm} className='new-entry-form-container' onSubmit={handleJournalSubmit} buttons={buttons} />
+            <Form title='New Entry' form={newEntryForm} className='new-entry-form-container' onSubmit={handleEntrySubmit} buttons={entryButtons} />
+            <Form title='New Journal' form={newJournalForm} className='new-entry-form-container' onSubmit={handleJournalSubmit} buttons={journalButtons} />
         </div>
     )
 }

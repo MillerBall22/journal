@@ -1,7 +1,7 @@
-const { getAllJournalEntries, addNewJournal } = require('../../models/journals.model');
+const { getAllJournals, addNewJournal } = require('../../models/journals.model');
 
 async function httpGetAllJournals(req, res) {
-    return res.status(200).json(await getAllJournalEntries());
+    return res.status(200).json(await getAllJournals());
 }
 
 function httpAddNewJournal(req, res) {
@@ -15,7 +15,7 @@ function httpAddNewJournal(req, res) {
     }
 
     addNewJournal(journal);
-    return res.status(201).json(entry);
+    return res.status(201).json(journal);
 }
 
 

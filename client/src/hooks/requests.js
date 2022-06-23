@@ -58,11 +58,27 @@ async function httpAddNewJournal(journal) {
         };
     }
 }
+
+async function httpAddNewEntry(entry) {
+    try {
+        return await fetch(`${API_URL}/entries`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entry)
+        });
+    } catch (error) {
+        return {
+            ok: false
+        };
+    }
+}
 export {
     httpAddNewTask,
     httpGetAllTasks,
     httpFinishTask,
     httpGetAllJournals,
     httpAddNewJournal,
-
+    httpAddNewEntry
 }

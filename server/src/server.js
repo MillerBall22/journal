@@ -1,13 +1,12 @@
 const http = require('http');
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 const app = require('./app')
 
 
 const PORT = process.env.PORT || 8000;
 
-const MONGO_URL = process.env.MONGO_URL
+const MONGO_URL = 'mongodb+srv://MillerBall22:wbs5YxFyCSarsq6m@cluster0.jrsln.mongodb.net/Journal?retryWrites=true&w=majority'
 
 const server = http.createServer(app);
 

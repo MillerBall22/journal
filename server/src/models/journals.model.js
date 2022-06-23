@@ -2,20 +2,17 @@ const Journals = require('./journals.mongo');
 
 
 async function addNewJournal(journalInfo) {
-    Journals.updateOne({ journalName: journalInfo.journalName });
-
-
-    //const filter = { journalName: journalInfo.journalName };
-    //await Journals.findOneAndUpdate(filter, journalInfo, {
-    //    new: true, // Always returning updated work experiences.
-    //    upsert: true, // By setting this true, it will create if it doesn't exist
-    //    projection: { _id: 0, __v: 0 }, // without return _id and __v
-    //});
+    const filter = { journalName: journalInfo.journalName };
+    await Journals.findOneAndUpdate(filter, journalInfo, {
+        new: true, // Always returning updated work experiences.
+        upsert: true, // By setting this true, it will create if it doesn't exist
+        projection: { _id: 0, __v: 0 }, // without return _id and __v
+    });
 }
 
 
 async function getAllJournals() {
-    return await journalsDatabase
+    return await Journals
         .find({}, { '_id': 0, '__v': 0 })
 }
 
