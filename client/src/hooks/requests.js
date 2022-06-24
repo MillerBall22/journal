@@ -74,11 +74,18 @@ async function httpAddNewEntry(entry) {
         };
     }
 }
+
+async function httpGetJournalEntries(journalSelection) {
+    const response = await fetch(`${API_URL}/entries/${[journalSelection]}`);
+    return await response.json();
+}
+
 export {
     httpAddNewTask,
     httpGetAllTasks,
     httpFinishTask,
     httpGetAllJournals,
     httpAddNewJournal,
-    httpAddNewEntry
+    httpAddNewEntry,
+    httpGetJournalEntries,
 }

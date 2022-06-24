@@ -1,0 +1,11 @@
+.entry-card-container {
+    padding: 20px 20px;
+    max-width: 45%;
+    flex-grow: 1;
+    background-color: #83A0C4;
+    border-radius: 5px;
+    .entry-title {
+        width: 100%;
+        text-align: center;
+    }
+}

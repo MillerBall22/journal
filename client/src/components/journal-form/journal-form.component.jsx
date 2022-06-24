@@ -8,7 +8,7 @@ import { httpAddNewJournal, httpGetAllJournals, httpAddNewEntry } from "../../ho
 const defaultEntryFormFields = {
     entryName: '',
     journal: '',
-    hoursTaken: 0,
+    hoursTaken: null,
     entryDetails: '',
 }
 

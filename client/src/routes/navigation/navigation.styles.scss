@@ -14,7 +14,7 @@
         }
     }
     .nav-links-container {
-        width: 80px;
+        width: 400px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -24,36 +24,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 42px;
+            font-size: 20px;
             padding: 10px 10px;
             cursor: pointer;
-            color: white;
-            border: solid 2px #00B4E3;
-            border-radius: 50%;
+            color: #283618;
+            border-radius: 5px;
+            margin: 5px;
+            background-color: #339764;
             font-weight: bold;
-            background-color: #00B4E3;
             &:hover {
-                background-color: white;
-                color: #00B4E3;
-                border: 2px solid white;
-            }
-        }
-        .active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            padding: 10px 10px;
-            cursor: pointer;
-            color: white;
-            border: solid 2px #94D60A;
-            border-radius: 50%;
-            font-weight: bold;
-            background-color: #94D60A;
-            &:hover {
-                background-color: white;
-                color: #94D60A;
-                border: 2px solid white;
+                color: #83A0C4;
+                background-color: #103461;
             }
         }
     }

@@ -1,0 +1,17 @@
+.open-journal-container {
+    display: flex;
+    padding: 0 10%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .journal-title {
+        flex-grow: 1;
+        width: 100%;
+        text-align: center;
+    }
+    .entries-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}

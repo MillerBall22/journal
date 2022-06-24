@@ -11,6 +11,14 @@ const Navigation = () => {
                 <Link className='logo-container' to='/'>
                     Home
                 </Link>
+                <div className='nav-links-container'>
+                    <Link className='nav-link' to='/journals-page'>
+                        Journals
+                    </Link>
+                    <Link className='nav-link' to='/to-do-page'>
+                        To Do List
+                    </Link>
+                </div>
             </div>
             <Outlet />
         </Fragment>

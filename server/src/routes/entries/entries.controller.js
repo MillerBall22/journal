@@ -1,7 +1,7 @@
 const { getJournalEntries, addNewEntry } = require('../../models/entries.model');
 
 async function httpGetJournalEntries(req, res) {
-    const journal = req.body
+    const journal = req.params.journal;
     return res.status(200).json(await getJournalEntries(journal));
 }
 
@@ -27,8 +27,6 @@ function httpAddNewEntry(req, res) {
     addNewEntry(entry);
     return res.status(201).json(entry);
 }
-
-
 
 module.exports = {
     httpGetJournalEntries,
